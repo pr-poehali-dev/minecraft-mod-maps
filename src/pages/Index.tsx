@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -21,6 +22,7 @@ interface MinecraftMap {
 
 const Index = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
@@ -195,7 +197,14 @@ const Index = () => {
                       </div>
                     </div>
                   </CardContent>
-                  <CardFooter className="p-4 pt-0">
+                  <CardFooter className="p-4 pt-0 gap-2 flex-col">
+                    <Button 
+                      onClick={() => navigate(`/map/${map.id}`)}
+                      className="w-full pixel-corners minecraft-shadow bg-[#7CB342] hover:bg-[#6CA032] text-white font-bold border-2 border-black"
+                    >
+                      <Icon name="Eye" size={18} className="mr-2" />
+                      ПОДРОБНЕЕ
+                    </Button>
                     <Button className="w-full pixel-corners minecraft-shadow bg-[#42A5F5] hover:bg-[#2196F3] text-white font-bold border-2 border-black">
                       <Icon name="Download" size={18} className="mr-2" />
                       СКАЧАТЬ
