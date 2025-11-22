@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 
@@ -248,6 +249,129 @@ const MapDetail = () => {
               </Card>
             </div>
           </div>
+
+          <section className="mt-8">
+            <Card className="pixel-corners minecraft-shadow-lg border-4 border-black bg-white/95">
+              <CardContent className="p-6">
+                <h3 className="text-2xl font-bold text-[#6D4C41] mb-6 flex items-center gap-2">
+                  <Icon name="MessageSquare" size={24} />
+                  Комментарии (3)
+                </h3>
+
+                <div className="space-y-4">
+                  <div className="border-2 border-gray-200 pixel-corners p-4 hover:border-[#7CB342] transition-colors">
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 pixel-corners overflow-hidden border-2 border-black flex-shrink-0">
+                        <img 
+                          src="https://cdn.poehali.dev/projects/349ab9aa-195c-46e4-a02b-7c1e6a4ba1f6/files/51ee9e93-7530-4d0d-ba6c-31bef4ad4797.jpg"
+                          alt="Avatar"
+                          className="w-full h-full object-cover"
+                          style={{ imageRendering: 'pixelated' }}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-bold text-[#6D4C41]">Creeper_Hunter</span>
+                          <span className="text-sm text-gray-500">2 дня назад</span>
+                          <div className="flex items-center gap-1 ml-auto">
+                            {[1,2,3,4,5].map(star => (
+                              <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-gray-700">
+                          Потрясающая карта! Квесты очень интересные, особенно понравилась битва с боссом в конце. Прошёл за 3 часа, очень затягивает!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-2 border-gray-200 pixel-corners p-4 hover:border-[#7CB342] transition-colors">
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 pixel-corners overflow-hidden border-2 border-black flex-shrink-0">
+                        <img 
+                          src="https://cdn.poehali.dev/projects/349ab9aa-195c-46e4-a02b-7c1e6a4ba1f6/files/51ee9e93-7530-4d0d-ba6c-31bef4ad4797.jpg"
+                          alt="Avatar"
+                          className="w-full h-full object-cover"
+                          style={{ imageRendering: 'pixelated' }}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-bold text-[#6D4C41]">BlockMaster</span>
+                          <span className="text-sm text-gray-500">5 дней назад</span>
+                          <div className="flex items-center gap-1 ml-auto">
+                            {[1,2,3,4].map(star => (
+                              <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                            ))}
+                            <Icon name="Star" size={16} className="text-gray-300" />
+                          </div>
+                        </div>
+                        <p className="text-gray-700">
+                          Отличная работа! Немного лагало в некоторых местах, но в целом всё супер. Загадки местами сложноваты, но это даже хорошо.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="border-2 border-gray-200 pixel-corners p-4 hover:border-[#7CB342] transition-colors">
+                    <div className="flex items-start gap-3">
+                      <div className="w-12 h-12 pixel-corners overflow-hidden border-2 border-black flex-shrink-0">
+                        <img 
+                          src="https://cdn.poehali.dev/projects/349ab9aa-195c-46e4-a02b-7c1e6a4ba1f6/files/51ee9e93-7530-4d0d-ba6c-31bef4ad4797.jpg"
+                          alt="Avatar"
+                          className="w-full h-full object-cover"
+                          style={{ imageRendering: 'pixelated' }}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="font-bold text-[#6D4C41]">RedstoneKing</span>
+                          <span className="text-sm text-gray-500">неделю назад</span>
+                          <div className="flex items-center gap-1 ml-auto">
+                            {[1,2,3,4,5].map(star => (
+                              <Icon key={star} name="Star" size={16} className="text-yellow-500 fill-yellow-500" />
+                            ))}
+                          </div>
+                        </div>
+                        <p className="text-gray-700">
+                          Лучшая приключенческая карта, что я играл! Механики боссов очень креативные, кастомные текстуры добавляют атмосферы. 10/10!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t-2 border-gray-200">
+                    <h4 className="font-bold text-[#6D4C41] mb-4">Оставить комментарий</h4>
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-sm text-gray-600">Ваша оценка:</span>
+                        <div className="flex gap-1">
+                          {[1,2,3,4,5].map(star => (
+                            <button 
+                              key={star}
+                              className="hover:scale-110 transition-transform"
+                            >
+                              <Icon name="Star" size={24} className="text-gray-300 hover:text-yellow-500" />
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      <Textarea 
+                        placeholder="Поделитесь своим мнением о карте..."
+                        className="pixel-corners border-2 border-black"
+                        rows={4}
+                      />
+                      <Button className="pixel-corners minecraft-shadow bg-[#7CB342] hover:bg-[#6CA032] text-white font-bold border-2 border-black">
+                        <Icon name="Send" size={18} className="mr-2" />
+                        ОТПРАВИТЬ
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
         </main>
       </div>
     </div>
