@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -9,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 
 const MapDetail = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(0);
 
   const mapData = {
@@ -165,10 +167,13 @@ const MapDetail = () => {
                     <h2 className="text-2xl font-bold text-[#6D4C41] mb-2">
                       {mapData.title}
                     </h2>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                    <button 
+                      onClick={() => navigate(`/user/${mapData.author}`)}
+                      className="flex items-center gap-2 text-sm text-gray-600 mb-4 hover:text-[#7CB342] transition-colors"
+                    >
                       <Icon name="User" size={16} />
                       <span>Автор: {mapData.author}</span>
-                    </div>
+                    </button>
                   </div>
 
                   <div className="flex flex-wrap gap-2">

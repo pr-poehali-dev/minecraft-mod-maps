@@ -191,10 +191,16 @@ const Index = () => {
                         <Icon name="Download" size={16} />
                         <span>{map.downloads}</span>
                       </div>
-                      <div className="flex items-center gap-1">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/user/${map.author}`);
+                        }}
+                        className="flex items-center gap-1 hover:text-[#7CB342] transition-colors"
+                      >
                         <Icon name="User" size={16} />
                         <span>{map.author}</span>
-                      </div>
+                      </button>
                     </div>
                   </CardContent>
                   <CardFooter className="p-4 pt-0 gap-2 flex-col">
